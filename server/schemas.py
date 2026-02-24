@@ -14,8 +14,7 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
              model = User
              load_instance = True
 
-class StoreSchema(ma.SQLAlchemyAutoSchema):
-        
+class StoreSchema(ma.SQLAlchemyAutoSchema):  
         id = ma.auto_field(dump_only=True)
         name = ma.auto_field(required=True,
              validate=validate.Length(min=2, max=50, error="Name must be between 2 and 50 characters"))
@@ -29,7 +28,6 @@ class StoreSchema(ma.SQLAlchemyAutoSchema):
         class Meta:
              model = Store
              load_instance = True
-
 
 
 class BeanSchema(ma.SQLAlchemyAutoSchema):
