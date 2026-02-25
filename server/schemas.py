@@ -1,15 +1,15 @@
 from config import ma
 from models import User, Store, Bean, Coffee
-from marshmallow import validate, pre_load
+from marshmallow import validate, pre_load, fields
 
 class UserSchema(ma.SQLAlchemyAutoSchema):
         id = ma.auto_field(dump_only=True)
         name = ma.auto_field(required=True,
              validate=validate.Length(min=2, max=50, error="Name must be between 2 and 50 characters"))
-        password = ma.auto_field(load_only=True,
+        password = fields.Str(load_only=True,
                 required=True,
                 validate=validate.Length(min=8, error="Password must be at least 8 characters long"))
-
+        
         class Meta:
              model = User
              load_instance = True
