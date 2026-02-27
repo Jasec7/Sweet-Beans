@@ -2,17 +2,6 @@ from config import ma
 from models import User, Store, Bean, Coffee
 from marshmallow import validate, pre_load, fields
 
-class UserSchema(ma.SQLAlchemyAutoSchema):
-        id = ma.auto_field(dump_only=True)
-        name = ma.auto_field(required=True,
-             validate=validate.Length(min=2, max=50, error="Name must be between 2 and 50 characters"))
-        password = fields.Str(load_only=True,
-                required=True,
-                validate=validate.Length(min=8, error="Password must be at least 8 characters long"))
-        
-        class Meta:
-             model = User
-             load_instance = True
 
 class StoreSchema(ma.SQLAlchemyAutoSchema):  
         id = ma.auto_field(dump_only=True)
@@ -24,6 +13,8 @@ class StoreSchema(ma.SQLAlchemyAutoSchema):
                      validate=validate.Regexp(
                            r'^[\d\-\+\(\)\s]{7,20}$',
                            error="Phone number must be valid"))
+        
+        coffees = ma.Nested(lambda: CoffeeSchema, many=True)
 
         class Meta:
              model = Store
@@ -43,6 +34,8 @@ class BeanSchema(ma.SQLAlchemyAutoSchema):
               if "roast" in data and isinstance(data["roast"], str):
                     data["roast"] = data["roast"].lower().strip()
               return data
+        
+        coffees = ma.Nested(lambda: CoffeeSchema, many=True)
 
         class Meta:
              model = Bean
@@ -63,46 +56,30 @@ class CoffeeSchema(ma.SQLAlchemyAutoSchema):
         store_id = ma.auto_field(load_only=True)
         bean_id = ma.auto_field(load_only=True)
 
-        store = ma.Nested(StoreSchema, dump_only=True)
-        bean = ma.Nested(BeanSchema, dump_only=True)
-
+        
         class Meta:
              model = Coffee
              load_instance = True
              include_fk = True
 
-
-class UserWithStoresSchema(ma.SQLAlchemySchema):
-        id = ma.auto_field()
-        name = ma.auto_field()
-      
+class UserSchema(ma.SQLAlchemyAutoSchema):
+        id = ma.auto_field(dump_only=True)
+        name = ma.auto_field(required=True,
+             validate=validate.Length(min=2, max=50, error="Name must be between 2 and 50 characters"))
+        password = fields.Str(load_only=True,
+                required=True,
+                validate=validate.Length(min=8, error="Password must be at least 8 characters long"))
+        
         stores = ma.Nested(StoreSchema, many=True)
-      
-        class Meta:
-            model = User
-            load_instance = True
-
-
-class UserWithBeansSchema(ma.SQLAlchemySchema):
-        id = ma.auto_field()
-        name = ma.auto_field()
-      
         beans = ma.Nested(BeanSchema, many=True)
-
+        
         class Meta:
-            model = User
-            load_instance = True
+             model = User
+             load_instance = True
+             exclude = ("_password_hash",)
 
 
-class UserWithCoffeesSchema(ma.SQLAlchemySchema):
-        id = ma.auto_field()
-        name = ma.auto_field()
-      
-        coffees = ma.Nested(CoffeeSchema, many=True)
-      
-        class Meta:
-            model = User
-            load_instance = True
+
 
 
 

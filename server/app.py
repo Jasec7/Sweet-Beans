@@ -3,7 +3,7 @@ from flask_restful import Resource
 
 from config import app, db, api
 from models import  User, Store, Bean, Coffee
-from schemas import UserSchema, StoreSchema, BeanSchema, CoffeeSchema, UserWithStoresSchema, UserWithBeansSchema, UserWithCoffeesSchema
+from schemas import UserSchema, StoreSchema, BeanSchema, CoffeeSchema
 
 @app.route('/')
 def index():
