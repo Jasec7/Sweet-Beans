@@ -18,7 +18,7 @@ class StoreSchema(ma.SQLAlchemyAutoSchema):
 
         class Meta:
              model = Store
-             load_instance = True
+             
 
 
 class BeanSchema(ma.SQLAlchemyAutoSchema):
@@ -39,7 +39,7 @@ class BeanSchema(ma.SQLAlchemyAutoSchema):
 
         class Meta:
              model = Bean
-             load_instance = True
+             
 
 
 class CoffeeSchema(ma.SQLAlchemyAutoSchema):
@@ -59,7 +59,6 @@ class CoffeeSchema(ma.SQLAlchemyAutoSchema):
         
         class Meta:
              model = Coffee
-             load_instance = True
              include_fk = True
 
 class UserSchema(ma.SQLAlchemyAutoSchema):
@@ -75,7 +74,6 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
         
         class Meta:
              model = User
-             load_instance = True
              exclude = ("_password_hash",)
 
 

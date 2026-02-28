@@ -143,7 +143,7 @@ api.add_resource(UserResource,'/users')
 api.add_resource(StoreResource,'/stores')
 api.add_resource(BeanResource,'/beans')
 api.add_resource(CoffeeResource,'/coffees')
-
+api.add_resource(CoffeeResourceId,'/coffees/<int:id>')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
