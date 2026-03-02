@@ -52,9 +52,9 @@ class CoffeeSchema(ma.SQLAlchemyAutoSchema):
         price = ma.auto_field(required=True,
                 validate=validate.Range(min=0.01, error="Price must be greater than 0"))
 
-        user_id = ma.auto_field(load_only=True)
-        store_id = ma.auto_field(load_only=True)
-        bean_id = ma.auto_field(load_only=True)
+        user_id = ma.auto_field()
+        store_id = ma.auto_field()
+        bean_id = ma.auto_field()
 
         
         class Meta:
@@ -76,6 +76,17 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
              model = User
              exclude = ("_password_hash",)
 
+
+class UserWithStoresAndBeanSchema(ma.SQLAlchemySchema):
+        id = ma.auto_field()
+        name = ma.auto_field()
+
+        stores = ma.Nested(StoreSchema, many=True)
+        beans = ma.Nested(BeanSchema, many=True)
+
+        class Meta:
+            model = User
+            
 
 
 

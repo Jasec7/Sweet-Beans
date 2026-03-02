@@ -100,7 +100,7 @@ class CoffeeResource(Resource):
             db.session.add(new_coffee)
             db.session.commit()
 
-            return StoreSchema().dump(new_coffee), 201
+            return CoffeeSchema().dump(new_coffee), 201
         
         except ValidationError as err:
             return {"errors": err.messages}, 400
