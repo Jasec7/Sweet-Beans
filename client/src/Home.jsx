@@ -1,10 +1,13 @@
 import { useContext } from "react"
 import { UserContext } from "./context/UserContext"
+import { useNavigate } from "react-router-dom"
 import { useFormik } from 'formik';
 import * as yup from 'yup'
 
 function Home() {
 const { currentUser, setCurrentUser } = useContext(UserContext)
+const navigate = useNavigate();
+
 
 
 const formSchema = yup.object().shape({
@@ -29,6 +32,7 @@ const formik = useFormik({
         .then((r) => r.json())
         .then((data) => {
           setCurrentUser(data)
+          navigate("/coffee-form")
         })
     },
   })
