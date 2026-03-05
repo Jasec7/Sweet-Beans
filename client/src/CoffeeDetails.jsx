@@ -39,6 +39,25 @@ function CoffeeDetails(){
             });
         }
     });
+    
+
+    const handleDelete = (id) => {
+        if (!window.confirm("Are you sure you want to delete this coffee?")) return;
+        fetch(` http://localhost:5555/coffees/${id}`,{
+            method:"DELETE"
+        }).then((r) => {
+            if(r.ok){
+                setCurrentUser(prev =>({
+                    ...prev,
+                    stores:prev.stores.map(store =>({
+                        ...store,
+                        coffees:store.coffees.filter(co => co.id !== id)
+                    }))
+                }))
+                navigate("/my-coffees")
+            }
+        })
+    }
     return(
        <div className="detail">
          {isEdit ? (
@@ -81,6 +100,7 @@ function CoffeeDetails(){
         <p>{coffee.price}</p>
 
         <button onClick={() => setIsEdit(true)}>Edit</button>
+        <button onClick={() => handleDelete(coffee.id)}>Delete</button>
       </>
     )}
   </div>
