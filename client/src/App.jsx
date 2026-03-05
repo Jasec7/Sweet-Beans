@@ -5,12 +5,14 @@ import CoffeeForm from "./CoffeeForm";
 import CoffeeDetails from "./CoffeeDetails";
 //import MyStores from "./MyStores";
 import MyBeans from "./MyBeans";
-import MyCoffees from "./MyCoffees"
+import MyCoffees from "./MyCoffees";
+import NavBar from './NavBar';
 import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
+    <NavBar/>
        <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/coffee-form" element={<CoffeeForm/>} />
