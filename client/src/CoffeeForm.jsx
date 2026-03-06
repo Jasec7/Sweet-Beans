@@ -6,23 +6,23 @@ import * as yup from 'yup'
 
 function CoffeeForm(){
 const { currentUser, setCurrentUser } = useContext(UserContext)
-const [stores, setStores] = useState([]);
-const [beans, setBeans] = useState([]);
 const navigate = useNavigate();
 
+/*
 useEffect(() => {
     fetch("http://localhost:5555/stores" )
     .then((r) => r.json())
     .then(stores => {setStores(stores)
     console.log(stores)})
-},[])
+},[])*/
 
+/*
 useEffect(() => {
     fetch("http://localhost:5555/beans")
     .then((r) => r.json())
     .then(beans => {setBeans(beans)
     console.log(beans)})
-},[])
+},[])*/
 
 const formSchema = yup.object().shape({
     brand: yup.string().required("Must enter a brand").min(2).max(50),
@@ -75,7 +75,7 @@ const formik = useFormik({
                         : store
                     )
                 } else {
-                    const storeInfo = stores.find(s => s.id === newCoffee.store_id)
+                    const storeInfo = prev.stores.find(s => s.id === newCoffee.store_id)
                     updatedStores = [
                         ...prev.stores,
                         { ...storeInfo, coffees: [newCoffee] }
@@ -91,7 +91,7 @@ const formik = useFormik({
                             : bean
                         )
                     } else {
-                        const beanInfo = beans.find(b => b.id === newCoffee.bean_id)
+                        const beanInfo = prev.beans.find(b => b.id === newCoffee.bean_id)
                         updatedBeans = [
                             ...prev.beans,
                             { ...beanInfo, coffees: [newCoffee] }
@@ -151,7 +151,7 @@ return(
         onChange={formik.handleChange}
         >
           <option value="">Select store</option>
-          {stores.map(s => (
+          {currentUser?.stores?.map(s => (
             <option key={s.id} value={s.id}>
               Store {s.name}
             </option>
@@ -164,7 +164,7 @@ return(
         onChange={formik.handleChange}
         >
             <option value="">Select Bean</option>
-            {beans.map(bean => (
+            {currentUser?.beans?.map(bean => (
                 <option key={bean.id} value={bean.id}>
                     {bean.roast} - {bean.origin}
                 </option>
