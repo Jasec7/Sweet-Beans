@@ -8,21 +8,6 @@ function CoffeeForm(){
 const { currentUser, setCurrentUser } = useContext(UserContext)
 const navigate = useNavigate();
 
-/*
-useEffect(() => {
-    fetch("http://localhost:5555/stores" )
-    .then((r) => r.json())
-    .then(stores => {setStores(stores)
-    console.log(stores)})
-},[])*/
-
-/*
-useEffect(() => {
-    fetch("http://localhost:5555/beans")
-    .then((r) => r.json())
-    .then(beans => {setBeans(beans)
-    console.log(beans)})
-},[])*/
 
 const formSchema = yup.object().shape({
     brand: yup.string().required("Must enter a brand").min(2).max(50),

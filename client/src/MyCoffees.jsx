@@ -6,6 +6,7 @@ function MyCoffees(){
     const { currentUser, setCurrentUser } = useContext(UserContext)
     return(
         <div className="coffee-card">
+            <h1>My Coffees</h1>
             {currentUser?.stores?.map((store) =>(
                 <div key={store.id}>
                     <h3>{store.name}</h3>

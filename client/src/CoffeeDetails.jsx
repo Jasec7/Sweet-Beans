@@ -1,12 +1,14 @@
 import React, {useContext, useState} from "react";
 import { UserContext } from "./context/UserContext";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 import { useFormik } from "formik";
 
 function CoffeeDetails(){
     const { currentUser, setCurrentUser} = useContext(UserContext)
     const { id } = useParams();
     const [isEdit, setIsEdit] = useState(false);
+    const navigate = useNavigate();
 
     const coffee = currentUser?.stores?.flatMap(store => store.coffees)?.find(c => c.id === Number(id))
 
