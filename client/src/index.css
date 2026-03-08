@@ -30,6 +30,11 @@ body {
   background-color: var(--coffee-cream);
   font-family: Arial, Helvetica, sans-serif, sans-serif;
   margin: 0;
+
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 h1 {
@@ -67,6 +72,7 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
 
 
 
@@ -128,9 +134,19 @@ button:hover {
   box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .bounce-icon {
+  display: inline-block;
   animation: bounce 1s infinite;
 }
 
 
-}
+
