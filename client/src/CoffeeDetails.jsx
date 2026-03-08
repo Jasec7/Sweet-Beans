@@ -97,9 +97,9 @@ function CoffeeDetails(){
       </form>
     ) : (
       <div className="card">
-        <p>{coffee.brand}</p>
+        <p>Brand : {coffee.brand}</p>
         <p>{coffee.presentation}</p>
-        <p>{coffee.price}</p>
+        <p>Price : {coffee.price}</p>
 
         <button onClick={() => setIsEdit(true)}>Edit</button>
         <button onClick={() => handleDelete(coffee.id)}>Delete</button>

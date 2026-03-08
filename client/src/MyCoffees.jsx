@@ -1,12 +1,13 @@
 import React, {useEffect, useState, useContext} from "react";
 import { UserContext } from "./context/UserContext";
 import { Link } from "react-router-dom";
+import { SiCoffeescript } from "react-icons/si";
 
 function MyCoffees(){
     const { currentUser, setCurrentUser } = useContext(UserContext)
     return(
         <div className="coffee-card">
-            <h1>My Coffees</h1>
+            <h1><SiCoffeescript className="bounce-icon" />My Coffees</h1>
             {currentUser?.stores?.map((store) =>(
                 <div key={store.id} className="card">
                     <h3>{store.name}</h3>

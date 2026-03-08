@@ -8,6 +8,7 @@ import MyBeans from "./MyBeans";
 import MyCoffees from "./MyCoffees";
 import NavBar from './NavBar';
 import './App.css'
+import "./index.css";
 
 function App() {
   return (

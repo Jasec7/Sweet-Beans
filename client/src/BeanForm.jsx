@@ -38,7 +38,7 @@ function BeanForm(){
     })
 
     return(
-        <div>
+        <div className="form-container">
           <h4>New Bean</h4>
           <form onSubmit={formik.handleSubmit}>
             <select
