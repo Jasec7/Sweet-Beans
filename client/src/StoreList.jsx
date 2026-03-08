@@ -7,7 +7,7 @@ function StoreList(){
     return(
         <div>
             {currentUser?.stores?.map(store =>(
-                <div key={store.id}>
+                <div key={store.id} className="card">
                     <h3>{store.name}</h3>
                     <p>{store.address}</p>
                     <p>{store.phone_number}</p>

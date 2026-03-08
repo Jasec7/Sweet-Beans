@@ -8,13 +8,13 @@ function MyCoffees(){
         <div className="coffee-card">
             <h1>My Coffees</h1>
             {currentUser?.stores?.map((store) =>(
-                <div key={store.id}>
+                <div key={store.id} className="card">
                     <h3>{store.name}</h3>
                 {store.coffees.length === 0 ? (
                     <p>No coffees in this store</p>
                 ) : (
                     store.coffees.map(coffee => (
-                    <div key={coffee.id}>
+                    <div key={coffee.id} >
                         <p>{coffee.brand}</p>
                         <Link to={`/my-coffees/${coffee.id}`}>View Coffee</Link>
                     </div>

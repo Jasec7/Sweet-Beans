@@ -5,7 +5,7 @@ function BeanList(){
     const {currentUser} = useContext(UserContext);
 
     return(
-        <div>
+        <div className="card">
             {currentUser?.beans?.map(bean =>(
                 <p key={bean.id}>{bean.roast} - {bean.origin}</p>
             )

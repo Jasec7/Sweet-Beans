@@ -4,7 +4,7 @@ import BeanList from "./BeanList";
 
 function MyBeans(){
     return(
-        <div>
+        <div >
             <h1>My Beans</h1>
             <BeanForm/>
             <BeanList/>

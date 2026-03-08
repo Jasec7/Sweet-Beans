@@ -96,14 +96,14 @@ function CoffeeDetails(){
         <button type="button" onClick={() => setIsEdit(false)}>Cancel</button>
       </form>
     ) : (
-      <>
+      <div className="card">
         <p>{coffee.brand}</p>
         <p>{coffee.presentation}</p>
         <p>{coffee.price}</p>
 
         <button onClick={() => setIsEdit(true)}>Edit</button>
         <button onClick={() => handleDelete(coffee.id)}>Delete</button>
-      </>
+      </div>
     )}
   </div>
     )
