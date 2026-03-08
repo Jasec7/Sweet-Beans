@@ -1,30 +1,53 @@
 # Sweet Beans ☕
+Sweet Beans is a full-stack web application that allows users to track coffee beans, stores, and the coffees they purchase.
+Users can create beans and stores, then log coffees associated with them, edit coffee details, and remove entries as needed.
 
-### 🌐 Live Links:
+The application was built with a React frontend and a Flask backend, using SQLAlchemy and Marshmallow to manage relational data and validations.
 
+## 🌟 Features
 
-## Overview
-.
-
-## The app includes:
-* Smooth navigation with React Router.
-
-## Features
-
+* User signup and account creation
+* Create and manage coffee beans
+* Create and manage stores
+* Log coffees associated with specific beans and stores
+* Edit coffee information
+* Delete coffee entries
+* Smooth navigation with React Router
+* Form handling with Formik
+* Form validation using Yup
+* Backend validation using Flask-Marshmallow
 
 ## Technologies Used
+## Frontend
 * React
 * React Router
-* Formik
 * Yup
 * CSS
+* React Icons
+* Backend
 * Python
 * Flask
 * Flask-RESTful
-* Flask Marshmallow
+* Flask-Marshmallow
 * SQLAlchemy
-* PostgreSQL
-* Git & GitHub for version control
+
+## Database
+* PostgreSQL (production)
+* SQLite (local development)
+
+## Backend
+* Python
+* Flask
+* Flask-RESTful
+* Flask-Marshmallow
+* SQLAlchemy
+* Database
+* PostgreSQL (production)
+* SQLite (local development)
+
+## Tools
+* Git
+* GitHub
 
 ## Setup / Installation
 git clone git@github.com:Jasec7/Sweet-Beans.git
