@@ -6,22 +6,22 @@ The application was built with a React frontend and a Flask backend, using SQLAl
 
 ## Screenshots
 ### Home
-![Home](screenshots/home 2026-03-08 032742.png)
+![Home](screenshots/home2026-03-08-032742.png)
 
 ### Add Coffee
-![AddCoffee](screenshots/addcoffee 2026-03-08 033032.png)
+![AddCoffee](screenshots/addcoffee2026-03-08-033032.png)
 
 ### My Coffees
-![MyCoffees](screenshots/mycoffees 2026-03-08 033138.png)
+![MyCoffees](screenshots/mycoffees2026-03-08-033138.png)
 
 ### My Stores
-![MyStores](screenshots/mystores 2026-03-08 033301.png)
+![MyStores](screenshots/mystores2026-03-08-033301.png)
 
 ### My Beans
-![MyBeans](screenshots/mybeans 2026-03-08 033224.png)
+![MyBeans](screenshots/mybeans2026-03-08-033224.png)
 
 ### Coffee Details
-![CoffeeDetails](screenshots/coffeedetails 2026-03-08 033349.png)
+![CoffeeDetails](screenshots/coffeedetails2026-03-08-033349.png)
 
 
 ## 🌟 Features
