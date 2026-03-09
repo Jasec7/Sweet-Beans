@@ -33,7 +33,6 @@ const formik = useFormik({
     },
     validationSchema: formSchema,
     onSubmit:(values) =>{
-        console.log('Submitting:', values)
         fetch("http://localhost:5555/coffees", {
             method:"POST",
             headers:{"Content-Type": "application/json"},
@@ -46,7 +45,7 @@ const formik = useFormik({
                 bean_id:Number(values.bean_id)
             })
         })
-        .then((r) => { console.log("status:", r.status); return r.json();})
+        .then((r) => r.json())
         .then(newCoffee =>{
             setCurrentUser(prev => {
                 const existingStore = prev.stores.find(s => s.id === newCoffee.store_id

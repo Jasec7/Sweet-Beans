@@ -1,6 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "./context/UserContext";
 
 function NavBar(){
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    function handleLogout() {
+        setCurrentUser(null);
+        navigate("/");
+  }
+
     return(
         <nav>
             <NavLink
@@ -37,6 +47,10 @@ function NavBar(){
             >
                 My Stores 
             </NavLink>
+
+            {currentUser && (
+                <button onClick={handleLogout}>Logout</button>
+            )}
             
         </nav>
     )

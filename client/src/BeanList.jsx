@@ -7,7 +7,7 @@ function BeanList(){
     return(
         <div className="card">
             {currentUser?.beans?.map(bean =>(
-                <p key={bean.id}>{bean.roast} - {bean.origin}</p>
+                <p key={bean.id}><b>{bean.roast} - {bean.origin}</b></p>
             )
             )}
         </div>

@@ -6,7 +6,9 @@ The application was built with a React frontend and a Flask backend, using SQLAl
 
 ## Screenshots
 ### Home
-![Home](screenshots/home2026-03-08-032742.png)
+![SignUp](screenshots/signup2026-03-08-214740.png)
+
+![Home](screenshots/hello2026-03-08-215606.png)
 
 ### Add Coffee
 ![AddCoffee](screenshots/addcoffee2026-03-08-033032.png)

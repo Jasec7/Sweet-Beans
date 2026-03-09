@@ -43,7 +43,7 @@ const formik = useFormik({
       <h1>Welcome to Sweet Beans ☕</h1>
 
       {currentUser ? (
-        <p>Hello, {currentUser.name}</p>
+        <p><b>Hello, {currentUser.name}</b></p>
       ) : (
         <div>
         <p>Please sign up</p>
