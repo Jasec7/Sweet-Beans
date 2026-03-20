@@ -1,4 +1,4 @@
-from flask import request, make_response
+from flask import request, session
 from flask_restful import Resource
 
 from config import app, db, api
@@ -32,6 +32,26 @@ class UserResource(Resource):
         
         except ValidationError as err:
             return {"errors": err.messages}, 400
+        
+class Login(Resource):
+    def post(self):
+        data = request.get_json()
+        user = User.query.filter(User.name == data['name']).first()
+
+        if not user:
+            return {"error": "Invalid name or password"}, 401
+
+        if not user.authenticate(data["password"]):
+            return {"error": "Invalid name or password"}, 401
+
+
+        session['user_id'] = user.id
+        return UserSchema().dump(user), 200
+    
+class Logout(Resource):
+    def delete(self):
+        session.pop('user_id', None)
+        return {}, 204
 
     
 class StoreResource(Resource):
@@ -140,6 +160,8 @@ class CoffeeResourceId(Resource):
         
     
 api.add_resource(UserResource,'/users')
+api.add_resource(Login,'/login')
+api.add_resource(Logout,'/logout')
 api.add_resource(StoreResource,'/stores')
 api.add_resource(BeanResource,'/beans')
 api.add_resource(CoffeeResource,'/coffees')
