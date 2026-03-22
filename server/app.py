@@ -53,6 +53,17 @@ class Logout(Resource):
         session.pop('user_id', None)
         return {}, 204
 
+class CheckSession(Resource):
+    def get(self):
+        user_id = session.get("user_id")
+
+        if not user_id:
+            return {"error": "Not authorized"}, 401
+
+        user = User.query.get(user_id)
+
+        return UserSchema().dump(user), 200
+
     
 class StoreResource(Resource):
     def get(self):
@@ -162,6 +173,7 @@ class CoffeeResourceId(Resource):
 api.add_resource(UserResource,'/users')
 api.add_resource(Login,'/login')
 api.add_resource(Logout,'/logout')
+api.add_resource(CheckSession, '/check_session')
 api.add_resource(StoreResource,'/stores')
 api.add_resource(BeanResource,'/beans')
 api.add_resource(CoffeeResource,'/coffees')
