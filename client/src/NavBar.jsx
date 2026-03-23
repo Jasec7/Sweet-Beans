@@ -7,8 +7,13 @@ function NavBar(){
     const navigate = useNavigate();
 
     function handleLogout() {
-        setCurrentUser(null);
-        navigate("/");
+        fetch("http://localhost:5555/logout", {
+            method:"DELETE",
+            credentials:"include"
+        }).then(() => {
+            setCurrentUser(null);
+            navigate("/");
+        });
   }
 
     return(

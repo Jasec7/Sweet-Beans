@@ -41,13 +41,13 @@ const formik = useFormik({
 
   return (
     <div>
-      <h1>Welcome to Sweet Beans ☕</h1>
+      <h1><strong>Welcome to Sweet Beans ☕</strong></h1>
 
       {currentUser ? (
         <p><b>Hello, {currentUser.name}</b></p>
       ) : (
         <div>
-        <p>Please sign up</p>
+        <p><strong>Please sign up</strong></p>
         <form onSubmit={formik.handleSubmit}>
           <input 
             type='text' 
