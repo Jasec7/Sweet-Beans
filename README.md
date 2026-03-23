@@ -28,7 +28,10 @@ The application was built with a React frontend and a Flask backend, using SQLAl
 
 ## 🌟 Features
 
-* User signup and account creation
+* User signup and login
+* Session basec authentication
+* Persisten login (user stays logged in after refresh)
+* Logout functionality
 * Create and manage coffee beans
 * Create and manage stores
 * Log coffees associated with specific beans and stores
