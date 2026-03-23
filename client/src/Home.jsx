@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { UserContext } from "./context/UserContext"
 import { useNavigate } from "react-router-dom"
 import { useFormik } from 'formik';
+import LoginForm from "./LoginForm";
 import * as yup from 'yup'
 
 function Home() {
@@ -70,6 +71,7 @@ const formik = useFormik({
             </form>
         </div>
       )}
+      <LoginForm />
     </div>
   )
 }
