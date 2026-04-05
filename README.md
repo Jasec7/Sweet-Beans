@@ -49,12 +49,6 @@ The application was built with a React frontend and a Flask backend, using SQLAl
 * Yup
 * CSS
 * React Icons
-* Backend
-* Python
-* Flask
-* Flask-RESTful
-* Flask-Marshmallow
-* SQLAlchemy
 
 ## Database
 * PostgreSQL (production)
@@ -76,6 +70,7 @@ The application was built with a React frontend and a Flask backend, using SQLAl
 
 ## Setup / Installation
 git clone git@github.com:Jasec7/Sweet-Beans.git
+
 ### Backend
 1. Navigate to the server directory
 2. Install dependencies:
@@ -94,6 +89,9 @@ npm run dev
 
 ## API Endpoints
 * /users
+* /login
+* /logout
+* /check_session
 * /stores
 * /beans
 * /coffees
