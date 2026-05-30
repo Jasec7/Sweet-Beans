@@ -4,10 +4,11 @@ Users can create beans and stores, then log coffees associated with them, edit c
 
 The application was built with a React frontend and a Flask backend, using SQLAlchemy and Marshmallow to manage relational data and validations.
 
-## Screenshots
-### Home
-![Login](screenshots/login-2026-03-22-220712.png)
+## Demo video
 
+[![Watch Demo](screenshots/login-2026-03-22-220712.png)](https://youtu.be/_X4po_kqFxE)
+
+### Home
 ![Home](screenshots/hello2026-03-08-215606.png)
 
 ### Add Coffee
